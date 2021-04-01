@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="css/css_reset.css">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+    <style>
+
+/*Embbeded CSS to not conflict with base*/
+
+body {
+    background-image: url(imgs/bg_aboutus.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.grid_container {
+    display: grid;
+    grid-template-columns: 15% 90%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "header cite cite"
+        "header cite cite" 
+        "footer footer footer";
+    min-height: 100vh;
+}
+
+.header_wrapper {
+    grid-area: header;
+    height: auto;
+    float: left;
+    background-color: #3F454F;
+    border-right: solid black;
+    border-width: 1px;
+    align-items: center;
+    position: sticky;
+    width: 261px;
+
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #3F454F;
+    min-height: 55px;
+    font-size: 20px;
+    color: white;
+    position: sticky;
+    border-top: solid black;
+    border-width: 1px;
+    bottom: 0;
+    width: 100%;
+}
+
+.citation_grid {
+    grid-area: cite;
+    display: grid;
+    grid-template-areas:"title" 
+                        "explanation"
+                        "citation";
+    grid-template-columns: max-content;
+    grid-template-rows: max-content;
+}
+
+.mobile_grid {
+    display: grid;
+    grid-template-areas:
+    "mob_logo"
+    "mob_nav"
+    "cite"
+    "mob_footer";
+    grid-template-columns: 100%;
+    grid-template-rows: 150px 100px 70% 10%;
+}
+
+.mobcite_grid {
+    grid-area: cite;
+    grid-template-areas:
+    "title"
+    "explanation"
+    "citation";
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    justify-self: center;
+
+
+}
+
+.mobcitation_box {
+    grid-area: explanation;
+    background-color: #1d202560;
+ 
+    border-radius: 30px;
+    margin: 100px 50px 30px 50px;
+}
+
+.mobcitation_box2 {
+    grid-area: citation;
+    background-color: #1d202560;
+ 
+    border-radius: 30px;
+    margin: 100px 50px 30px 50px;
+}
+
+.citation_box {
+    grid-area: explanation;
+    background-color: #1d202560;
+    width: 1500px;
+    border-radius: 30px;
+    margin: 100px 50px 30px 50px;
+}
+
+.citation_box2 {
+    grid-area: citation;
+    background-color: #1d202560;
+    width: 1500px;
+    border-radius: 30px;
+    margin: 100px 50px 30px 50px;
+}
+
+
+/* Mobile Version */
+
+        @media all and (min-width: 1500px ) {
+    .mobile_grid {
+        display: none;
+    }
+}
+
+@media all and (max-width: 1500px ) {
+
+  .grid_container {
+      display: none;
+  }
+}
+
+  
+
+</style>
+    <title>ABOUT US (CITATION) | Saja-do 사자도 Martial Arts</title>
+
+
+    
+</head>
+
+<body>
+    <!-- Mobile Portion -->
+
+<div class="mobile_grid">
+
+    <img src="imgs/Logo.png" alt="Saja-Do Logo" id="logo_mob">
+
+    <nav id="blackbox_mobile">
+        <div class="mobnav">
+            <a href="final_cite.html"  class="active">ABOUT US (CITATION)</a>
+            
+            <div id="myLinks">
+              <a href="final.html">HOME</a>
+              <a href="final_programs.html">PROGRAMS</a>
+              <a href="final_contact.html" >CONTACT US</a>
+              <a href="final_account.html">MY ACCOUNT</a>
+              
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+    </nav>
+    
+    <input type="image" alt="chat icon"  src="imgs/chat.png" class="live_chat" onclick="myChat()" style="position:fixed; right:20px; bottom: 90px; width:100px" >
+    
+
+
+
+    <div class="mobcite_grid">
+
+            <h1 style="grid-area:title;">ABOUT US (CITATION)</h1>
+            <div class="mobcitation_box">
+                <h2 style="text-align: left;">FINAL PROJECT - EXPLANATION</h2>
+                <h3 style="text-align: left; color: white; padding: 10px;">Responsive Design</h3>
+                <p style="color: rgb(202, 202, 202);text-align: left; font-size: 30px; padding: 0 20px 0 20px;">Responsive design was implemented through the use of CSS Grid + Media Queries. The breakpoint occurs at 1500px and disables all the portions pertaining to the desktop version, while activating the mobile version, and vice versa. Embedded CSS was used to better retain control of all the media queries such as to not conflict with the CSS Base file. The changes are: Logo positioning, Navigation bar style, and content positioning. Also, the mobile version has a more simplified design, not containing the same amount of information that can be found in the sidebar of the desktop version.</p>
+                <h3 style="text-align: left; color: white; margin-top: 15px; padding: 10px;">Javascript & Interactivity Requirements</h3>
+                <p style="color: rgb(202, 202, 202);text-align: left; font-size: 30px; padding: 0 20px 0 20px;">Javascript can be found in the buttons on the Programs & Account pages. Programs page gives you an alert saying that the item has been added to the cart, once the user clicks on Buy. Account pages has 2 buttons, each of them have a function to redirect to a specific page once clicked on (Home & Programs pages). Other javascript implemented was the live chat button, which once clicked gives the user an alert stating that the feature is still in development. As for interactivity, the accordion tabs inside the account page have a transition on them once the user clicks to show more. There's also a CSS portion which changes the icon from + to - once opened.         
+                    <h3 style="text-align: left; color: white; margin-top: 15px; padding: 10px;">Form Requirements</h3>
+                    <p style="color: rgb(202, 202, 202);text-align: left; font-size: 30px; padding: 0 20px 20px 20px;">Form is linked to a php file that was re-used from Week 10. It also has a javascript function that creates a fully functional captcha box. The other 2 options that the user has to contact the studio are the live chat and the contact information which can be found on the sidebar and at the bottom of the contact us page.</p>
+             </div>
+             <div class="mobcitation_box2" style="margin-bottom: 100px;">
+                 <h2 style="text-align: left;">FINAL PROJECT - CITATION</h2>
+                 <h3 style="text-align: left; color: white; margin-top: 15px; padding: 10px;">Images & Icons</h3>
+                 <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Images sourced from my personal archives</p>
+                 <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Logo created by me, using <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vectorstock.com%2Froyalty-free-vector%2Fcreative-abstract-colorful-lion-head-logo-vector-20603019&psig=AOvVaw3VimqGQk0UFN-N8PW_E5I1&ust=1617367585275000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIiF_PiJ3e8CFQAAAAAdAAAAABAK" style="display: inline-block; padding: 0; color: white; font-size: 30px;">this design</a> as base.</p>
+                 <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Icons sourced from flaticon.com</p>
+                 <h3 style="text-align: left; color: white; margin-top: 15px; padding: 10px;">Other Sources</h3>
+                 <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Used W3Schools <a href="https://www.w3schools.com/jsref/met_win_alert.asp" style="display: inline-block; padding: 0; color: white; font-size: 30px;"> tutorial</a> in how to create a window alert with Javascript.</p>
+                 <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Used W3Schools <a href="https://www.w3schools.com/howto/howto_js_accordion.asp" style="display: inline-block; padding: 0; color: white; font-size: 30px;"> tutorial</a> in how to create an Accordion and how to animate it.</p>
+                 <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Used CSS Tricks <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" style="display: inline-block; padding: 0; color: white; font-size: 30px;"> tutorial</a> as a guide while working with CSS grids.</p>
+                 <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Used <a href="https://stackoverflow.com/questions/58562531/css-grid-with-fixed-sidebar" style="display: inline-block; padding: 0; color: white; font-size: 30px;">a Stack Overflow</a> thread as a base to create the sidebar in CSS grid and how to nest the content inside that grid.</p>
+                 <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Used <a href="https://stackoverflow.com/questions/16131988/making-an-image-act-like-a-button" style="display: inline-block; padding: 0; color: white; font-size: 30px;">a Stack Overflow</a> thread to learn how to create a button from an image. </p>
+                 <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Used <a href="https://allwebco-templates.com/support/script-simple-captcha.htm" style="display: inline-block; padding: 0; color: white; font-size: 30px;">this tutorial</a> found online to create a captcha box in the form page.</p>
+                 <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 20px 20px;">- Used past lessons, notes, and some content from the COMP1850 course as a base to work on this final project.</p>
+             </div>
+        
+    
+
+   
+    </div>
+
+    <div class="mobile_footer" style="position: fixed; bottom: 0;">
+        <p style="float: left;">Saja-do 사자도 Martial Arts</p>
+        <p style="float: right;">604-123-4567 | 111 West Broadway - Vancouver, BC - V0S 0S0</p>
+    </div>
+</div>
+    <!-- Desktop Portion -->
+    <div class="grid_container">
+        <div class="header_wrapper">
+            <img src="imgs/Logo.png" alt="Saja-Do Logo" id="logo">
+            <div class="topnav">
+                <ul>
+                    <li class="navlist"><a href="final.html">HOME</a></li>
+                    <li class="navlist"><a href="final_programs.html">PROGRAMS</a></li>
+                    <li class="navlist"><a href="final_contact.html">CONTACT US</a></li>
+                    <li class="navlist"><a href="final_account.html">MY ACCOUNT</a></li>
+                    <li class="navlist"><a href="final_cite.html" class="active">ABOUT US (CITE)</a></li>
+                </ul>
+            </div>
+            <div class="contact"
+                style="text-align: center; color: white; padding-top: 20px; border-top: solid black; border-bottom: solid black; border-width: 1px; padding-bottom: 20px; ">
+                <h3 style="margin-bottom: 10px;">Phone:</h3>
+                <p style="margin-bottom: 20px; font-size: 20px;">604-123-4567</p>
+                <h3 style="margin-bottom: 10px;">Email:</h3>
+                <p style="margin-bottom: 10px; font-size: 20px;">info@sajado.ca</p>
+            </div>
+            <div class="locations" style="text-align: center; color: white; padding-top: 20px; ">
+                <h3 style="margin-bottom: 10px;">Vancouver Studio</h3>
+                <p style="font-size: 20px;"> 111 West Broadway</p>
+                <p style="margin-bottom: 20px; font-size: 20px;">Vancouver, BC V0S 0S0</p>
+                <h3 style="margin-bottom: 10px;">Burnaby Studio</h3>
+                <p style="font-size: 20px;"> 966 Lougheed Hwy</p>
+                <p style="margin-bottom: 20px; font-size: 20px;">Burnaby, BC V9Z 1E1</p>
+                <h3 style="margin-bottom: 10px;">Coquitlam Studio</h3>
+                <p style="font-size: 20px;"> 330 Como Lake Ave</p>
+                <p style="padding-bottom: 60px; font-size: 20px; border-bottom: solid black; border-width: 1px;">
+                    Coquitlam, BC V6X 2B3</p>
+            </div>
+
+        </div>
+        
+        
+    <div class="citation_grid">
+        <h1 style="grid-area:title;">ABOUT US (CITATION)</h1>
+        <div class="citation_box">
+            <h2 style="text-align: left;">FINAL PROJECT - EXPLANATION</h2>
+            <h3 style="text-align: left; color: white; padding: 10px;">Responsive Design</h3>
+            <p style="color: rgb(202, 202, 202);text-align: left; font-size: 30px; padding: 0 20px 0 20px;">Responsive design was implemented through the use of CSS Grid + Media Queries. The breakpoint occurs at 1500px and disables all the portions pertaining to the desktop version, while activating the mobile version, and vice versa. Embedded CSS was used to better retain control of all the media queries such as to not conflict with the CSS Base file. The changes are: Logo positioning, Navigation bar style, and content positioning. Also, the mobile version has a more simplified design, not containing the same amount of information that can be found in the sidebar of the desktop version.</p>
+            <h3 style="text-align: left; color: white; margin-top: 15px; padding: 10px;">Javascript & Interactivity Requirements</h3>
+            <p style="color: rgb(202, 202, 202);text-align: left; font-size: 30px; padding: 0 20px 0 20px;">Javascript can be found in the buttons on the Programs & Account pages. Programs page gives you an alert saying that the item has been added to the cart, once the user clicks on Buy. Account pages has 2 buttons, each of them have a function to redirect to a specific page once clicked on (Home & Programs pages). Other javascript implemented was the live chat button, which once clicked gives the user an alert stating that the feature is still in development. As for interactivity, the accordion tabs inside the account page have a transition on them once the user clicks to show more. There's also a CSS portion which changes the icon from + to - once opened.         
+                <h3 style="text-align: left; color: white; margin-top: 15px; padding: 10px;">Form Requirements</h3>
+                <p style="color: rgb(202, 202, 202);text-align: left; font-size: 30px; padding: 0 20px 20px 20px;">Form is linked to a php file that was re-used from Week 10. It also has a javascript function that creates a fully functional captcha box. The other 2 options that the user has to contact the studio are the live chat and the contact information which can be found on the sidebar and at the bottom of the contact us page.</p>
+         </div>
+         <div class="citation_box2">
+             <h2 style="text-align: left;">FINAL PROJECT - CITATION</h2>
+             <h3 style="text-align: left; color: white; margin-top: 15px; padding: 10px;">Images & Icons</h3>
+             <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Images sourced from my personal archives</p>
+             <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Logo created by me, using <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vectorstock.com%2Froyalty-free-vector%2Fcreative-abstract-colorful-lion-head-logo-vector-20603019&psig=AOvVaw3VimqGQk0UFN-N8PW_E5I1&ust=1617367585275000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIiF_PiJ3e8CFQAAAAAdAAAAABAK" style="display: inline-block; padding: 0; color: white; font-size: 30px;">this design</a> as base.</p>
+             <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Icons sourced from flaticon.com</p>
+             <h3 style="text-align: left; color: white; margin-top: 15px; padding: 10px;">Other Sources</h3>
+             <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Used W3Schools <a href="https://www.w3schools.com/jsref/met_win_alert.asp" style="display: inline-block; padding: 0; color: white; font-size: 30px;"> tutorial</a> in how to create a window alert with Javascript.</p>
+             <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Used W3Schools <a href="https://www.w3schools.com/howto/howto_js_accordion.asp" style="display: inline-block; padding: 0; color: white; font-size: 30px;"> tutorial</a> in how to create an Accordion and how to animate it.</p>
+             <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Used CSS Tricks <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" style="display: inline-block; padding: 0; color: white; font-size: 30px;"> tutorial</a> as a guide while working with CSS grids.</p>
+             <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Used <a href="https://stackoverflow.com/questions/58562531/css-grid-with-fixed-sidebar" style="display: inline-block; padding: 0; color: white; font-size: 30px;">a Stack Overflow</a> thread as a base to create the sidebar in CSS grid and how to nest the content inside that grid.</p>
+             <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Used <a href="https://stackoverflow.com/questions/16131988/making-an-image-act-like-a-button" style="display: inline-block; padding: 0; color: white; font-size: 30px;">a Stack Overflow</a> thread to learn how to create a button from an image. </p>
+             <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 0 20px;">- Used <a href="https://allwebco-templates.com/support/script-simple-captcha.htm" style="display: inline-block; padding: 0; color: white; font-size: 30px;">this tutorial</a> found online to create a captcha box in the form page.</p>
+             <p style="color: rgb(202, 202, 202); text-align: left; font-size: 30px; padding: 0 20px 20px 20px;">- Used past lessons, notes, and some content from the COMP1850 course as a base to work on this final project.</p>
+         </div>
+    
+
+    </div>
+        
+        
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+              x.style.display = "none";
+            } else {
+              x.style.display = "block";
+            }
+          }
+    
+          function myChat() {
+      alert("This feature is still in development!");
+    }
+    
+    
+        </script>
+         <footer style="grid-column: 1/3;">
+            <p style="float: left; margin: 15px;">Saja-do 사자도 Martial Arts</p>
+            <p style=" margin: 15px;">604-123-4567 | 111 West Broadway - Vancouver, BC - V0S 0S0</p>
+        </footer>
+        <input type="image" alt="chat icon" src="imgs/chat.png" class="live_chat" onclick="myChat()" style="position:fixed; right:20px; bottom: 90px; width:70px" >
+        </div>
+    
+        
+        
+        
+       
+        
+    
+</body>
+
+</html>
+
+

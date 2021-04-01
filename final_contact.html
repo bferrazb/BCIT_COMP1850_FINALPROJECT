@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="css/css_reset.css">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+        /*Embbeded CSS to not conflict with base*/
+
+        body {
+            background-image: url(imgs/bg_contact.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .grid_container {
+            display: grid;
+            grid-template-columns: repeat(2, 261px 90%);
+            /*grid-template-rows: repeat(3, 50% 45% 5%);*/
+            grid-template-areas:
+                "header contact_form"
+                "header contact_box"
+                "footer footer";
+            min-height: 100vh;
+        }
+
+        .header_wrapper {
+            grid-area: header;
+            height: auto;
+            float: left;
+            background-color: #3F454F;
+            border-right: solid black;
+            border-width: 1px;
+            align-items: center;
+            position: sticky;
+            width: 261px;
+
+        }
+
+
+        /*CSS form portion*/
+
+        .flexyform {
+            display: grid;
+            grid-template-columns: repeat(2, 5fr);
+            grid-template-areas:
+                "name age"
+                "email schedule"
+                "phone classes"
+                "goals message"
+                "button button";
+            grid-gap: 0 30px;
+            margin: 50px 85px 0;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 30px;
+            color: white;
+            background-color: #1d202560;
+        }
+
+        .name {
+            grid-area: name;
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+
+        .email {
+            grid-area: email;
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+
+        .phone {
+            grid-area: phone;
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+
+        .goals {
+            grid-area: goals;
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+
+        .age_dropdown {
+            grid-area: age;
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+
+        .schedule {
+            grid-area: schedule;
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+
+        .classes {
+            grid-area: classes;
+        }
+
+        .message {
+            grid-area: message;
+        }
+
+        .button {
+            grid-area: button;
+            text-align: center;
+        }
+
+        .label {
+            display: block;
+            text-align: left;
+        }
+
+        .flexyform textarea {
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        .flexyform input:not([type=radio]):not([type=checkbox]) {
+            width: 100%;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 40px;
+        }
+
+
+        select {
+            margin-top: 10px;
+            height: 40px;
+            width: 100%;
+        }
+
+
+        .contact_box {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-template-areas:
+                "Location1 Location2 Location3";
+            grid-gap: 0 30px;
+            margin: 200px 85px;
+            padding: 15px;
+            height: 200px;
+            border-radius: 15px;
+            font-size: 30px;
+            color: white;
+            background-color: #1d202560;
+        }
+
+        /*Captcha CSS*/
+        capbox {
+            background-color: #BBBBBB;
+            background-image: linear-gradient(#BBBBBB, #9E9E9E);
+            border: #2A7D05 0px solid;
+            border-width: 2px 2px 2px 20px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            display: inline-block;
+            padding: 5px 8px 5px 8px;
+            border-radius: 4px 4px 4px 4px;
+        }
+
+        .capbox-inner {
+            font: bold 12px arial, sans-serif;
+            color: white;
+            background-color: rgba(92, 92, 92, 0.582);
+            margin: 0px auto 0px auto;
+            padding: 3px 10px 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        #CaptchaDiv {
+            color: white;
+            font: normal 25px Impact, Charcoal, arial, sans-serif;
+            font-style: italic;
+            text-align: center;
+            vertical-align: middle;
+            background-color: rgba(92, 92, 92, 0.582);
+            user-select: none;
+            display: inline-block;
+            padding: 3px 14px 3px 8px;
+            margin-right: 4px;
+            border-radius: 4px;
+        }
+
+        #CaptchaInput {
+            border: black 2px solid;
+            margin: 3px 0px 1px 0px;
+            width: 105px;
+        }
+
+
+        /* Mobile Version */
+
+        @media all and (min-width: 1500px) {
+            .mobile_grid {
+                display: none;
+            }
+        }
+
+        @media all and (max-width: 1500px) {
+
+            .grid_container {
+                display: none;
+            }
+        }
+
+        .mobile_form {
+            grid-area: mob_content;
+            display: grid;
+            grid-template-areas:
+                "name"
+                "email";
+            background-color: #1d202560;
+            margin: 150px 50px;
+            border-radius: 30px;
+            padding: 30px;
+            color: white;
+            font-size: 30px;
+        }
+
+        .flexyform_mob textarea {
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        .flexyform_mob input:not([type=radio]):not([type=checkbox]) {
+            width: 100%;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 40px;
+
+        }
+    </style>
+    <title>CONTACT US | Saja-do 사자도 Martial Arts</title>
+
+
+
+
+
+
+</head>
+
+<body>
+    <!-- Mobile Portion -->
+
+    <div class="mobile_grid">
+
+        <img src="imgs/Logo.png" alt="Saja-Do Logo" id="logo_mob">
+
+        <nav id="blackbox_mobile">
+            <div class="mobnav">
+                <a href="final_contact.html" class="active">CONTACT US</a>
+                <div id="myLinks">
+                    <a href="final.html">HOME</a>
+                    <a href="final_programs.html">PROGRAMS</a>
+                    <a href="final_account.html">MY ACCOUNT</a>
+                    <a href="final_cite.html">ABOUT US (CITE)</a>
+                </div>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </nav>
+
+
+        <div class="mobile_form">
+            <h1>CONTACT US</h1>
+            <form class="flexyform_mob" action="echo_my_form.php" method="post" onsubmit="return checkform(this);">
+
+
+                <div class="name">
+                    <label for="1name"> Full name
+
+                    </label>
+                    <input type="text" name="name" id="1name" required="required" placeholder="First and Last Name">
+                </div>
+
+                <div class="email">
+                    <label for="1email"> Email
+                        <input type="email" name="email" id="1email" required="required"
+                            placeholder="address@domain.com">
+                    </label>
+                </div>
+
+                <div class="phone">
+                    <label for="1phone"> Phone number
+                        <input type="tel" name="phone" id="1phone" required="required" placeholder="(xxx) xxx-xxxx">
+                    </label>
+                </div>
+
+                <div class="goals">
+                    <p>What are your fitness goals?</p>
+                    <textarea name="goals" rows="15" cols="90"
+                        placeholder="Write a short description of what are your goals"></textarea>
+                </div>
+
+
+
+
+
+                <div class="age_dropdown">
+                    <label for="1age"> How old are you?
+                        <select name="age" id="1age">
+                            <option value selected disabled id="1age0">Select</option>
+                            <option id="1age1" value="4 to 7">4 to 7</option>
+                            <option id="1age2" value="8 to 12">8 to 12</option>
+                            <option id="1age3" value="13 to 16">13 to 16</option>
+                            <option id="1age4" value="17 and older">17 and older</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="schedule">
+                    <label for="1schedule"> How often would you like to train per week?
+                        <select name="schedule" id="1schedule">
+                            <option value selected disabled id="1schedule0">Select</option>
+                            <option id="1schedule1" value="Once a week">Once a week</option>
+                            <option id="1schedule2" value="2x a week">2x a week</option>
+                            <option id="1schedule3" value="3x a week">3x a week</option>
+                            <option id="1schedule4" value="Unlimited">Unlimited</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="classes">
+                    <p style="margin-bottom: 10px;">What classes are you interested in?</p>
+                    <input type="radio" id="1Taekwondo" name="class" value="Taekwondo">
+                    <label for="Taekwondo">Taekwondo</label>
+                    <input type="radio" id="1Jiu-Jitsu" name="class" value="Jiu-Jitsu">
+                    <label for="Jiu-Jitsu">Jiu-Jitsu</label>
+                    <input type="radio" id="1Both" name="class" value="Both">
+                    <label for="Both">Both</label>
+                </div>
+                <p class="message" style="text-align:center; padding:80px;">Answer the questions as best as you can and
+                    a member of our staff will be reaching out to you soon!</p>
+
+
+                <div class="button">
+                    <div class="capbox">
+
+                        <div id="1CaptchaDiv"></div>
+
+                        <div class="capbox-inner">
+                            <p>Type the number:</p>
+                            <input type="hidden" id="1txtCaptcha">
+                            <input type="text" name="CaptchaInput1" id="CaptchaInput1" size="15">
+                            <input type="submit"
+                                style="width: 90px; border-radius: 10px;font-size: 20px; margin: 5px auto;">
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="location1" style="color: white; margin-top: 50px;">
+                    <h2>VANCOUVER STUDIO</h2>
+                    <p style="font-size: 20px; text-align: center;">111 West Broadway</p>
+                    <p style="font-size: 20px; text-align: center;">Vancouver, BC V0S 0S0</p>
+                    <p style="font-size: 20px; text-align: center;">604-123-4567</p>
+                </div>
+                <div class="location1" style="color: white;">
+                    <h2>BURNABY STUDIO</h2>
+                    <p style="font-size: 20px; text-align: center;">966 Lougheed Hwy</p>
+                    <p style="font-size: 20px; text-align: center;">Burnaby, BC V9Z 1E1</p>
+                    <p style="font-size: 20px; text-align: center;">778-321-7654</p>
+                </div>
+                <div class="location1" style="color: white;">
+                    <h2>COQUITLAM STUDIO</h2>
+                    <p style="font-size: 20px; text-align: center;">330 Como Lake Ave</p>
+                    <p style="font-size: 20px; text-align: center;">Coquitlam, BC V6X 2B3</p>
+                    <p style="font-size: 20px; text-align: center;">236-101-2232</p>
+                </div>
+
+
+            </form>
+        </div>
+        <input type="image" alt="chat icon" src="imgs/chat.png" class="live_chat" onclick="myChat()"
+            style="position:fixed; right:20px; bottom: 90px; width:100px">
+        <div class="mobile_footer">
+            <p style="float: left;">Saja-do 사자도 Martial Arts</p>
+            <p style="float: right;">604-123-4567 | 111 West Broadway - Vancouver, BC - V0S 0S0</p>
+        </div>
+    </div>
+
+
+    <!-- Desktop Portion -->
+    <div class="grid_container">
+        <div class="header_wrapper">
+            <img src="imgs/Logo.png" alt="Saja-Do Logo" id="logo">
+            <div class="topnav">
+                <ul>
+                    <li class="navlist"><a href="final.html">HOME</a></li>
+                    <li class="navlist"><a href="final_programs.html">PROGRAMS</a></li>
+                    <li class="navlist"><a class="active" href="final_contact.html">CONTACT US</a></li>
+                    <li class="navlist"><a href="final_account.html">MY ACCOUNT</a></li>
+                    <li class="navlist"><a href="final_cite.html">ABOUT US (CITE)</a></li>
+                </ul>
+            </div>
+            <div class="contact"
+                style="text-align: center; color: white; padding-top: 20px; border-top: solid black; border-bottom: solid black; border-width: 1px; padding-bottom: 20px; ">
+                <h3 style="margin-bottom: 10px;">Phone:</h3>
+                <p style="margin-bottom: 20px; font-size: 20px;">604-123-4567</p>
+                <h3 style="margin-bottom: 10px;">Email:</h3>
+                <p style="margin-bottom: 10px; font-size: 20px;">info@sajado.ca</p>
+            </div>
+            <div class="locations" style="text-align: center; color: white; padding-top: 20px; ">
+                <h3 style="margin-bottom: 10px;">Vancouver Studio</h3>
+                <p style="font-size: 20px;"> 111 West Broadway</p>
+                <p style="margin-bottom: 20px; font-size: 20px;">Vancouver, BC V0S 0S0</p>
+                <h3 style="margin-bottom: 10px;">Burnaby Studio</h3>
+                <p style="font-size: 20px;"> 966 Lougheed Hwy</p>
+                <p style="margin-bottom: 20px; font-size: 20px;">Burnaby, BC V9Z 1E1</p>
+                <h3 style="margin-bottom: 10px;">Coquitlam Studio</h3>
+                <p style="font-size: 20px;"> 330 Como Lake Ave</p>
+                <p style="padding-bottom: 20px; font-size: 20px; border-bottom: solid black; border-width: 1px;">
+                    Coquitlam, BC V6X 2B3</p>
+            </div>
+
+        </div>
+
+
+        <div class="contact_form" style="grid-area: contact_form;">
+
+            <h1>CONTACT US</h1>
+            <form class="flexyform" action="echo_my_form.php" method="post" onsubmit="return checkform(this);">
+
+
+                <div class="name">
+                    <label for="name"> Full name
+
+                    </label>
+                    <input type="text" name="name" id="name" required="required" placeholder="First and Last Name">
+                </div>
+
+                <div class="email">
+                    <label for="email"> Email
+                        <input type="email" name="email" id="email" required="required"
+                            placeholder="address@domain.com">
+                    </label>
+                </div>
+
+                <div class="phone">
+                    <label for="phone"> Phone number
+                        <input type="tel" name="phone" id="phone" required="required" placeholder="(xxx) xxx-xxxx">
+                    </label>
+                </div>
+
+                <div class="goals">
+                    <p>What are your fitness goals?</p>
+                    <textarea name="goals" rows="15" cols="90"
+                        placeholder="Write a short description of what are your goals"></textarea>
+                </div>
+
+
+
+
+
+                <div class="age_dropdown">
+                    <label for="age"> How old are you?
+                        <select name="age" id="age">
+                            <option value selected disabled id="age0">Select</option>
+                            <option id="age1" value="4 to 7">4 to 7</option>
+                            <option id="age2" value="8 to 12">8 to 12</option>
+                            <option id="age3" value="13 to 16">13 to 16</option>
+                            <option id="age4" value="17 and older">17 and older</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="schedule">
+                    <label for="schedule"> How often would you like to train per week?
+                        <select name="schedule" id="schedule">
+                            <option value selected disabled id="schedule0">Select</option>
+                            <option id="schedule1" value="Once a week">Once a week</option>
+                            <option id="schedule2" value="2x a week">2x a week</option>
+                            <option id="schedule3" value="3x a week">3x a week</option>
+                            <option id="schedule4" value="Unlimited">Unlimited</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="classes">
+                    <p style="margin-bottom: 10px;">What classes are you interested in?</p>
+                    <input type="radio" id="Taekwondo" name="class" value="Taekwondo">
+                    <label for="Taekwondo">Taekwondo</label>
+                    <input type="radio" id="Jiu-Jitsu" name="class" value="Jiu-Jitsu">
+                    <label for="Jiu-Jitsu">Jiu-Jitsu</label>
+                    <input type="radio" id="Both" name="class" value="Both">
+                    <label for="Both">Both</label>
+                </div>
+                <p class="message" style="text-align:center; padding:80px;">Answer the questions as best as you can and
+                    a member of our staff will be reaching out to you soon!</p>
+
+
+                <div class="button">
+                    <div class="capbox">
+
+                        <div id="CaptchaDiv"></div>
+
+                        <div class="capbox-inner">
+                            <p>Type the number:</p>
+                            <input type="hidden" id="txtCaptcha">
+                            <input type="text" name="CaptchaInput" id="CaptchaInput" size="15">
+                            <input type="submit"
+                                style="width: 90px; border-radius: 10px;font-size: 20px; margin: 5px auto;">
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </form>
+            <script>
+                function myFunction() {
+                    var x = document.getElementById("myLinks");
+                    if (x.style.display === "block") {
+                        x.style.display = "none";
+                    } else {
+                        x.style.display = "block";
+                    }
+                }
+
+                function myChat() {
+                    alert("This feature is still in development!");
+                }
+
+
+                // Captcha Script
+
+                function checkform(theform) {
+                    var why = "";
+
+                    if (theform.CaptchaInput.value == "") {
+                        why += "- Please Enter CAPTCHA Code.\n";
+                    }
+                    if (theform.CaptchaInput.value != "") {
+                        if (ValidCaptcha(theform.CaptchaInput.value) == false) {
+                            why += "- The CAPTCHA Code Does Not Match.\n";
+                        }
+                    }
+                    if (why != "") {
+                        alert(why);
+                        return false;
+                    }
+                }
+
+                var a = Math.ceil(Math.random() * 9) + '';
+                var b = Math.ceil(Math.random() * 9) + '';
+                var c = Math.ceil(Math.random() * 9) + '';
+                var d = Math.ceil(Math.random() * 9) + '';
+                var e = Math.ceil(Math.random() * 9) + '';
+
+                var code = a + b + c + d + e;
+                document.getElementById("txtCaptcha").value = code;
+                document.getElementById("CaptchaDiv").innerHTML = code;
+
+                // Validate input against the generated number
+                function ValidCaptcha() {
+                    var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+                    var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+                    if (str1 == str2) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+
+                // Remove the spaces from the entered and generated code
+                function removeSpaces(string) {
+                    return string.split(' ').join('');
+                }
+
+
+                // Mobile Captcha Script
+
+                function checkform(theform) {
+                    var why = "";
+
+                    if (theform.CaptchaInput1.value == "") {
+                        why += "- Please Enter CAPTCHA Code.\n";
+                    }
+                    if (theform.CaptchaInput1.value != "") {
+                        if (ValidCaptcha(theform.CaptchaInput1.value) == false) {
+                            why += "- The CAPTCHA Code Does Not Match.\n";
+                        }
+                    }
+                    if (why != "") {
+                        alert(why);
+                        return false;
+                    }
+                }
+
+                var a = Math.ceil(Math.random() * 9) + '';
+                var b = Math.ceil(Math.random() * 9) + '';
+                var c = Math.ceil(Math.random() * 9) + '';
+                var d = Math.ceil(Math.random() * 9) + '';
+                var e = Math.ceil(Math.random() * 9) + '';
+
+                var code = a + b + c + d + e;
+                document.getElementById("1txtCaptcha").value = code;
+                document.getElementById("1CaptchaDiv").innerHTML = code;
+
+                // Validate input against the generated number
+                function ValidCaptcha() {
+                    var str1 = removeSpaces(document.getElementById('1txtCaptcha').value);
+                    var str2 = removeSpaces(document.getElementById('CaptchaInput1').value);
+                    if (str1 == str2) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+
+                // Remove the spaces from the entered and generated code
+                function removeSpaces(string) {
+                    return string.split(' ').join('');
+                }
+            </script>
+        </div>
+
+        <div class="contact_box" style="grid-area: contact_box;">
+            <div class="location1" style="grid-area: location1; grid-column-start: 1; grid-column-end: 2;">
+                <h2>VANCOUVER STUDIO</h2>
+                <p style="font-size: 20px; text-align: center;">111 West Broadway</p>
+                <p style="font-size: 20px; text-align: center;">Vancouver, BC V0S 0S0</p>
+                <p style="font-size: 20px; text-align: center;">604-123-4567</p>
+            </div>
+            <div class="location1" style="grid-area: location1; grid-column-start: 2; grid-column-end: 3;">
+                <h2>BURNABY STUDIO</h2>
+                <p style="font-size: 20px; text-align: center;">966 Lougheed Hwy</p>
+                <p style="font-size: 20px; text-align: center;">Burnaby, BC V9Z 1E1</p>
+                <p style="font-size: 20px; text-align: center;">778-321-7654</p>
+            </div>
+            <div class="location1" style="grid-area: location1; grid-column-start: 3; grid-column-end: 4;">
+                <h2>COQUITLAM STUDIO</h2>
+                <p style="font-size: 20px; text-align: center;">330 Como Lake Ave</p>
+                <p style="font-size: 20px; text-align: center;">Coquitlam, BC V6X 2B3</p>
+                <p style="font-size: 20px; text-align: center;">236-101-2232</p>
+            </div>
+        </div>
+        <input type="image" alt="chat icon" src="imgs/chat.png" class="live_chat" onclick="myChat()"
+            style="position:fixed; right:20px; bottom: 90px; width:70px">
+        <footer>
+            <p style="float: left; margin: 15px;">Saja-do 사자도 Martial Arts</p>
+            <p style=" margin: 15px;">604-123-4567 | 111 West Broadway - Vancouver, BC - V0S 0S0</p>
+        </footer>
+
+    </div>
+</body>
+
+</html>
+
+

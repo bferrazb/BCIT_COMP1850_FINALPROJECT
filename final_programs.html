@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="css/css_reset.css">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+    <style>
+
+/*Embbeded CSS to not conflict with base*/
+
+body {
+    background-image: url(imgs/bg_programs.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.grid_container {
+    display: grid;
+    grid-template-columns: 15% 90%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "header programs programs"
+        "header programs programs" 
+        "footer footer footer";
+    min-height: 100vh;
+}
+
+.header_wrapper {
+    grid-area: header;
+    height: auto;
+    float: left;
+    background-color: #3F454F;
+    border-right: solid black;
+    border-width: 1px;
+    align-items: center;
+    position: sticky;
+    width: 261px;
+
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #3F454F;
+    min-height: 55px;
+    font-size: 20px;
+    color: white;
+    position: sticky;
+    border-top: solid black;
+    border-width: 1px;
+    bottom: 0;
+    width: 100%;
+}
+
+.program_grid {
+    grid-area: programs;
+    display: grid;
+    grid-template-areas:"title title title" 
+                        "program1 program2 program3" 
+                         "program4 program5 program6"
+                         "program7 program8 program9";
+    grid-template-columns: max-content max-content max-content;
+    grid-template-rows: max-content max-content max-content max-content;
+}
+
+.mobile_grid {
+    display: grid;
+    grid-template-areas:
+    "mob_logo"
+    "mob_nav"
+    "programs2"
+    "mob_footer";
+    grid-template-columns: 100%;
+    grid-template-rows: 150px 100px 70% 10%;
+    grid-template-columns: auto;
+}
+
+.mobprogram_grid {
+    grid-area: programs2;
+    grid-template-areas:
+    "title"
+    "program1"
+    "program2"
+    "program3"
+    "program4"
+    "program5"
+    "program6"
+    "program7"
+    "program8"
+    "program9";
+    grid-template-rows: auto;
+    grid-template-columns: max-content;
+    justify-self: center;
+
+
+}
+
+.program1 {
+    grid-area: program1;
+}
+
+.program2 {
+    grid-area:program2;
+}
+
+.program3 {
+    grid-area: program3;
+}
+
+.program4 {
+    grid-area: program4;
+}
+ 
+.program5 {
+    grid-area: program5;
+}
+
+.program6 {
+    grid-area: program6;
+}
+
+.program7 {
+    grid-area: program7;
+}
+
+.program8 {
+    grid-area: program8;
+}
+
+.program9 {
+    grid-area: program9;
+}
+
+.program_box {
+    background-color: #1d202560;
+    width: 350px;
+    border-radius: 30px;
+    margin: 100px 50px 30px 50px;
+    text-align: center;
+}
+
+
+/* Mobile Version */
+
+        @media all and (min-width: 1500px ) {
+    .mobile_grid {
+        display: none;
+    }
+}
+
+@media all and (max-width: 1500px ) {
+
+  .grid_container {
+      display: none;
+  }
+}
+
+  
+
+</style>
+    <title>PROGRAMS | Saja-do 사자도 Martial Arts</title>
+
+
+    
+
+    
+
+</head>
+
+<body>
+    <!-- Mobile Portion -->
+
+<div class="mobile_grid">
+
+    <img src="imgs/Logo.png" alt="Saja-Do Logo" id="logo_mob">
+
+    <nav id="blackbox_mobile">
+        <div class="mobnav">
+            <a href="final_programs.html" class="active">PROGRAMS</a>
+            <div id="myLinks">
+              <a href="final.html">HOME</a>
+              <a href="final_contact.html" >CONTACT US</a>
+              <a href="final_account.html">MY ACCOUNT</a>
+              <a href="final_cite.html">ABOUT US (CITE)</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+    </nav>
+    
+    <input type="image" alt="chat icon"  src="imgs/chat.png" class="live_chat" onclick="myChat()" style="position:fixed; right:20px; bottom: 90px; width:100px" >
+    
+
+
+
+    <div class="mobprogram_grid">
+
+        <h1 style=" grid-area:title; margin-top:30px; padding: 100px 0 0 0">PROGRAMS</h1>
+        <div class="program1">
+            <div class="program_box" style="margin-top: 50px;">
+                <img src="imgs/martial-arts_1.png" alt="Taekwondo Monthly" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Taekwondo</h2>
+                <h2>Monthly Membership</h2>
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 150.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program2">
+            <div class="program_box" style="margin-top: 50px;">
+                <img src="imgs/martial-arts_1.png" alt="Taekwondo Yearly" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Taekwondo</h2>
+                <h2>Yearly Membership</h2>
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 1500.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program3">
+            <div class="program_box" style="margin-top: 50px;">
+                <img src="imgs/martial-arts_1.png" alt="Taekwondo Yearly" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Taekwondo</h2>
+                <h2 style="padding-bottom:0;">Day</h2>
+                <h2 style="padding-top:0">Pass</h2> 
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 35.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program4">
+            <div class="program_box" style="margin-top: 50px;">
+                <img src="imgs/martial-arts.png" alt="Taekwondo Yearly" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Jiu-Jitsu</h2>
+                <h2>Monthly Membership</h2> 
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 130.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program5">
+            <div class="program_box" style="margin-top: 50px;">
+                <img src="imgs/martial-arts.png" alt="Taekwondo Yearly" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Jiu-Jitsu</h2>
+                <h2>Yearly Membership</h2> 
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 1300.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program6">
+            <div class="program_box" style="margin-top: 50px;">
+                <img src="imgs/martial-arts.png" alt="Taekwondo Yearly" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Jiu-Jitsu</h2>
+                <h2 style="padding-bottom:0;">Day</h2>
+                <h2 style="padding-top:0">Pass</h2> 
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 20.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program7">
+            <div class="program_box" style="margin-top: 50px;">
+                <img src="imgs/karate.png" alt="Taekwondo Yearly" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Belt test</h2>
+                <h2>Introductory & Beginner</h2>
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 50.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program8" >
+            <div class="program_box" style="margin-top: 50px;">
+                <img src="imgs/martial-arts.png" alt="Taekwondo Yearly" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Belt test</h2>
+                <h2>Intermediate & Advanced</h2> 
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 80.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program9" style=" padding-bottom: 100px;">
+            <div class="program_box"  style="margin-top: 50px;">
+                <img src="imgs/camp.png" alt="Taekwondo Yearly" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Training Challenge</h2>
+                <h2>Day Pass</h2>
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 45.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+   
+    </div>
+    <div class="mobile_footer" style="position: fixed; bottom: 0;">
+        <p style="float: left;">Saja-do 사자도 Martial Arts</p>
+        <p style="float: right;">604-123-4567 | 111 West Broadway - Vancouver, BC - V0S 0S0</p>
+    </div>
+</div>
+    <!-- Desktop Portion -->
+    <div class="grid_container">
+        <div class="header_wrapper">
+            <img src="imgs/Logo.png" alt="Saja-Do Logo" id="logo">
+            <div class="topnav">
+                <ul>
+                    <li class="navlist"><a href="final.html">HOME</a></li>
+                    <li class="navlist"><a href="final_programs.html" class="active">PROGRAMS</a></li>
+                    <li class="navlist"><a href="final_contact.html">CONTACT US</a></li>
+                    <li class="navlist"><a href="final_account.html">MY ACCOUNT</a></li>
+                    <li class="navlist"><a href="final_cite.html">ABOUT US (CITE)</a></li>
+                </ul>
+            </div>
+            <div class="contact"
+                style="text-align: center; color: white; padding-top: 20px; border-top: solid black; border-bottom: solid black; border-width: 1px; padding-bottom: 20px; ">
+                <h3 style="margin-bottom: 10px;">Phone:</h3>
+                <p style="margin-bottom: 20px; font-size: 20px;">604-123-4567</p>
+                <h3 style="margin-bottom: 10px;">Email:</h3>
+                <p style="margin-bottom: 10px; font-size: 20px;">info@sajado.ca</p>
+            </div>
+            <div class="locations" style="text-align: center; color: white; padding-top: 20px; ">
+                <h3 style="margin-bottom: 10px;">Vancouver Studio</h3>
+                <p style="font-size: 20px;"> 111 West Broadway</p>
+                <p style="margin-bottom: 20px; font-size: 20px;">Vancouver, BC V0S 0S0</p>
+                <h3 style="margin-bottom: 10px;">Burnaby Studio</h3>
+                <p style="font-size: 20px;"> 966 Lougheed Hwy</p>
+                <p style="margin-bottom: 20px; font-size: 20px;">Burnaby, BC V9Z 1E1</p>
+                <h3 style="margin-bottom: 10px;">Coquitlam Studio</h3>
+                <p style="font-size: 20px;"> 330 Como Lake Ave</p>
+                <p style="padding-bottom: 60px; font-size: 20px; border-bottom: solid black; border-width: 1px;">
+                    Coquitlam, BC V6X 2B3</p>
+            </div>
+
+        </div>
+        
+        
+    <div class="program_grid">
+        <h1 style="grid-area:title;">PROGRAMS</h1>
+        <div class="program1">
+            <div class="program_box">
+                <img src="imgs/martial-arts_1.png" alt="Taekwondo Monthly" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Taekwondo</h2>
+                <h2>Monthly Membership</h2>
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 150.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program2">
+            <div class="program_box">
+                <img src="imgs/martial-arts_1.png" alt="Taekwondo Yearly" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Taekwondo</h2>
+                <h2>Yearly Membership</h2>
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 1500.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program3">
+            <div class="program_box">
+                <img src="imgs/martial-arts_1.png" alt="Taekwondo Day Pass" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Taekwondo</h2>
+                <h2 style="padding-bottom:0;">Day</h2>
+                <h2 style="padding-top:0">Pass</h2> 
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 35.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program4">
+            <div class="program_box">
+                <img src="imgs/martial-arts.png" alt="Jiu Jitsu Monthly" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Jiu-Jitsu</h2>
+                <h2>Monthly Membership</h2> 
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 130.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program5">
+            <div class="program_box">
+                <img src="imgs/martial-arts.png" alt="Jiu Jitsu Yearly" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Jiu-Jitsu</h2>
+                <h2>Yearly Membership</h2> 
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 1300.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program6">
+            <div class="program_box">
+                <img src="imgs/martial-arts.png" alt="Jiu Jitsu Day Pass" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Jiu-Jitsu</h2>
+                <h2 style="padding-bottom:0;">Day</h2>
+                <h2 style="padding-top:0">Pass</h2> 
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 20.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program7" style="padding-bottom:150px">
+            <div class="program_box">
+                <img src="imgs/karate.png" alt="Belt Test Beginner" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Belt test</h2>
+                <h2>Introductory & Beginner</h2>
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 50.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program8" style="padding-bottom:150px">
+            <div class="program_box">
+                <img src="imgs/martial-arts.png" alt="Belt Test Advanced" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Belt test</h2>
+                <h2>Intermediate & Advanced</h2> 
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 80.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+        <div class="program9" style="padding-bottom:150px">
+            <div class="program_box">
+                <img src="imgs/camp.png" alt="Training Challenge" style="width:250px; margin:30px" >
+                <h2 style="padding-bottom:0;">Training Challenge</h2>
+                <h2>Day Pass</h2>
+                <h3 style="color:rgb(202, 202, 202); margin-bottom:10px">CAD$ 45.00</h3>
+                <button onclick="myPurchase()" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px; margin-bottom:20px">
+                BUY</button>
+
+            </div>
+        </div>
+
+    </div>
+        
+        
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+              x.style.display = "none";
+            } else {
+              x.style.display = "block";
+            }
+          }
+    
+          function myChat() {
+      alert("This feature is still in development!");
+    }
+    
+    function myPurchase() {
+      alert("Item added to cart. Contact us for more information about the program!");
+    }
+
+    
+        </script>
+         <footer style="grid-column: 1/3;">
+            <p style="float: left; margin: 15px;">Saja-do 사자도 Martial Arts</p>
+            <p style=" margin: 15px;">604-123-4567 | 111 West Broadway - Vancouver, BC - V0S 0S0</p>
+        </footer>
+        <input type="image" alt="chat icon" src="imgs/chat.png" class="live_chat" onclick="myChat()" style="position:fixed; right:20px; bottom: 90px; width:70px" >
+        </div>
+    
+        
+        
+        
+       
+        
+    
+</body>
+
+</html>
+

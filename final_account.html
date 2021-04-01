@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="css/css_reset.css">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+        .title {
+            grid-area: title;
+
+        }
+
+        .pgLogo {
+            grid-area: logo;
+        }
+
+        .user {
+            grid-area: name;
+            position: absolute;
+            top: 260px;
+            right: 200px;
+        }
+
+        .logout_button {
+            grid-area: logout;
+            position: absolute;
+            top: 270px;
+            right: 10px;
+            background-color: #1d202560;
+            color: white;
+        }
+
+        .topgrid {
+            display: grid;
+            grid-template-areas: "title title logo"
+                "name name logout";
+            grid-template-columns: max-content auto max-content;
+            background-color: #1d202560;
+
+        }
+
+        body {
+            background-image: url(imgs/bg_myaccount.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .membership_section {
+            width: 1500px;
+        }
+
+        .events_section {
+            width: 1500px;
+        }
+
+        h3 {
+            margin-top: 50px;
+            margin-left: 30px;
+            margin-bottom: 10px;
+            color: white;
+            font-size: 30px;
+            display: inline-block;
+
+        }
+
+
+        h4 {
+            font-size: 20px;
+            color: rgb(202, 202, 202);
+            margin: 10px 0 10px 50px;
+        }
+
+        .info_section {
+            width: 1500px;
+            margin-bottom: 150px;
+        }
+
+
+        .section_1 {
+            display: inline-block;
+            margin-right: 100px;
+        }
+
+        .section_2 {
+            display: inline-block;
+        }
+
+        .buy_button {
+            float: right;
+            margin-top: 150px;
+            width: 100px;
+            height: 40px;
+            border-radius: 30px;
+            background-color: #1d202560;
+            color: white;
+            font-size: 20px;
+        }
+
+
+
+        .accordion {
+            background-color: #1d202560;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+            margin-left: 20px;
+            border-radius: 30px;
+            font-size: 20px;
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: #1d2025;
+        }
+
+        .accordion:after {
+            content: '\002B';
+            color: #777;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .panel {
+            padding: 0 18px;
+            max-height: 0;
+            width: 100%;
+            margin-left: 20px;
+            border-radius: 30px;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .box {
+            width: 200px;
+            margin: 20px;
+            color: white;
+            display: inline-block;
+            font-size: 20px;
+        }
+
+        .box2 {
+            font-size: 20px;
+            margin: 10px;
+            color: white;
+
+        }
+
+
+        /* MOBILE SECTION */
+
+        @media all and (min-width: 1500px) {
+
+            .mob_header,
+            .membership_mob,
+            .event_mob,
+            .info_mob {
+                display: none;
+            }
+        }
+
+        @media all and (max-width: 1500px) {
+
+            .topgrid,
+            .membership_section,
+            .events_section,
+            .info_section {
+                display: none;
+            }
+        }
+
+        .membership_mob {
+            margin-top: 0;
+            margin-right: 50px;
+            max-width: 1000px;
+
+        }
+
+        .event_mob {
+            max-width: 1000px;
+            margin-right: 50px;
+        }
+
+        .info_mob {
+            max-width: 1000px;
+            margin-bottom: 150px;
+            margin-right: 50px;
+
+        }
+
+        .mob_logout_button {
+            float: right;
+            right: 10px;
+            display: inline-block;
+            margin-top: 100px;
+            background-color: #1d202560;
+            color: white;
+            position: absolute;
+        }
+    </style>
+
+    <title>My Account | Saja-do 사자도 Martial Arts</title>
+
+
+</head>
+
+<body>
+
+
+
+
+    <header>
+
+        <div class="mob_header" style="background-color:#1d202560 ;">
+            <img src="imgs/Logo.png" alt="Main Logo"
+                style="width: 200px; margin-top: 10px; margin-left: 10px; margin-bottom: 10px;">
+            <h2 style="position: sticky; left: 0; display: inline-block; margin-top: 150px; float: right;">MR. JOHN DOE
+            </h2>
+            <button onclick="location.href='final.html';" type="button" class="mob_logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; width: 150px; font-size: 25px;">
+                LOGOUT</button>
+
+        </div>
+
+
+
+        <!-- DESKTOP PORTION -->
+        <div class="topgrid">
+            <h1 class="title"
+                style="float: left; margin: 150px 0 10px 20px; padding: 0; text-align: left; width: 550px;">MY ACCOUNT
+            </h1>
+            <img src="imgs/Logo.png" alt="Main Logo" class="pgLogo" style="width: 200px; float: left; margin-top: 10px; margin-right: 20px;">
+            <h2 class="user" style="text-align: left;">MR. JOHN DOE</h2>
+            <button onclick="location.href='final.html';" type="button" class="logout_button"
+                style="width: 150px; height: 50px; border-radius: 30px; float: right; width: 150px; font-size: 25px;">
+                LOGOUT</button>
+        </div>
+
+
+
+    </header>
+    <input type="image" alt="chat icon" src="imgs/chat.png" class="live_chat" onclick="myChat()"
+        style="position:fixed; right:20px; bottom: 90px; width:100px; z-index: 1;">
+    <main>
+        <!-- MOBILE PORTION -->
+        <div class="membership_mob">
+            <h3 style="margin-top: 150px;">MY MEMBERSHIPS & TESTS</h3>
+            <button onclick="location.href='final_programs.html';" type="button" class="buy_button"
+                style="float: right">STORE</button>
+            <button class="accordion">ACTIVE</button>
+            <div class="panel">
+                <div class="box">
+                    <img src="imgs/karate.png" alt="Belt Test Image" style="width: 200px;">
+                    <p style="text-align: center;">BELT TEST REGISTRATION - BLUE BELT</p>
+                </div>
+                <div class="box">
+                    <img src="imgs/martial-arts.png" alt="Jiu-Jitsu Image" style="width: 200px;">
+                    <p style="text-align: center;">JIU-JITSU - YEARLY MEMBERSHIP</p>
+                </div>
+            </div>
+            <button class="accordion">PAST MEMBERSHIPS</button>
+            <div class="panel">
+                <div class="box">
+                    <img src="imgs/martial-arts_1.png" alt="Taekwondo" style="width: 200px;">
+                    <p style="text-align: center;">TAEKWONDO - MONTHLY MEMBERSHIP</p>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="event_mob">
+            <h3>UPCOMING EVENTS</h3>
+            <button class="accordion">THIS MONTH</button>
+            <div class="panel">
+                <div class="box2">
+                    <p style="margin:10px;"> - EASTER HOLIDAY | STUDIO CLOSURE -> APRIL 2ND to APRIL 4TH</p>
+                    <p style="margin:10px;"> - VICTORIA DAY LONG WEEKEND | STUDIO CLOSURE -> MAY 24TH </p>
+
+                </div>
+            </div>
+
+            <button class="accordion">THIS YEAR</button>
+            <div class="panel">
+                <div class="box2">
+                    <p style="margin:10px;"> - X-MAS POTLUCK PARTY! -> DECEMBER 21ST</p>
+                </div>
+
+            </div>
+        </div>
+       
+
+        <div class="info_mob">
+
+            <h3 style="display: block;">PERSONAL INFO</h3>
+            <div class="section_1">
+                <h4>CURRENT BELT</h4>
+                <p style="margin-left: 60px; color: rgb(202, 202, 202); font-size: 18px;">WHITE BELT</p>
+                <h4>ADDRESS</h4>
+                <p style="margin-left: 60px; color: rgb(202, 202, 202); font-size: 18px;">5665 West 41st Ave, Vancouver
+                    BC, V4S 2N5</p>
+            </div>
+            <div class="section_2">
+                <h4>PHONE NUMBER</h4>
+                <p style="margin-left: 60px; color: rgb(202, 202, 202); font-size: 18px;">(604)555-6652</p>
+                <h4>EMAIL</h4>
+                <p style="margin-left: 60px; color: rgb(202, 202, 202); font-size: 18px;">john.doe@gmail.com</p>
+            </div>
+        </div>
+        
+
+
+        <!-- DESKTOP PORTION -->
+        <div class="membership_section">
+            <h3 style="margin-top: 150px;">MY MEMBERSHIPS & TESTS</h3>
+            <button onclick="location.href='final_programs.html';" type="button" class="buy_button">STORE</button>
+            <button class="accordion">ACTIVE</button>
+            <div class="panel">
+                <div class="box">
+                    <img src="imgs/karate.png" alt="Belt Test Image" style="width: 200px;">
+                    <p style="text-align: center;">BELT TEST REGISTRATION - BLUE BELT</p>
+                </div>
+                <div class="box">
+                    <img src="imgs/martial-arts.png" alt="Jiu-Jitsu Image" style="width: 200px;">
+                    <p style="text-align: center;">JIU-JITSU - YEARLY MEMBERSHIP</p>
+                </div>
+            </div>
+            <button class="accordion">PAST MEMBERSHIPS</button>
+            <div class="panel">
+                <div class="box">
+                    <img src="imgs/martial-arts_1.png" alt="Taekwondo" style="width: 200px;">
+                    <p style="text-align: center;">TAEKWONDO - MONTHLY MEMBERSHIP</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="events_section">
+            <h3>UPCOMING EVENTS</h3>
+            <button class="accordion">THIS MONTH</button>
+            <div class="panel">
+                <div class="box2">
+                    <p style="margin:10px;"> - EASTER HOLIDAY | STUDIO CLOSURE -> APRIL 2ND to APRIL 4TH</p>
+                    <p style="margin:10px;"> - VICTORIA DAY LONG WEEKEND | STUDIO CLOSURE -> MAY 24TH </p>
+
+                </div>
+            </div>
+
+            <button class="accordion">THIS YEAR</button>
+            <div class="panel">
+                <div class="box2">
+                    <p style="margin:10px;"> - X-MAS POTLUCK PARTY! -> DECEMBER 21ST</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="info_section">
+
+            <h3 style="display: block;">PERSONAL INFO</h3>
+            <div class="section_1">
+                <h4>CURRENT BELT</h4>
+                <p style="margin-left: 60px; color: rgb(202, 202, 202); font-size: 18px;">WHITE BELT</p>
+                <h4>ADDRESS</h4>
+                <p style="margin-left: 60px; color: rgb(202, 202, 202); font-size: 18px;">5665 West 41st Ave, Vancouver
+                    BC, V4S 2N5</p>
+            </div>
+            <div class="section_2">
+                <h4>PHONE NUMBER</h4>
+                <p style="margin-left: 60px; color: rgb(202, 202, 202); font-size: 18px;">(604)555-6652</p>
+                <h4>EMAIL</h4>
+                <p style="margin-left: 60px; color: rgb(202, 202, 202); font-size: 18px;">john.doe@gmail.com</p>
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <footer style="position: fixed;">
+        <p style="float: left; margin: 15px;">Saja-do 사자도 Martial Arts</p>
+        <p style="float: right; margin: 15px;">604-123-4567 | 111 West Broadway - Vancouver, BC - V0S 0S0</p>
+    </footer>
+
+  
+
+    <script>
+
+        function myChat() {
+            alert("This feature is still in development!");
+        }
+
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
+
+
