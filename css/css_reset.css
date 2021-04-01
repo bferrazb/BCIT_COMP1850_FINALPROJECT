@@ -1,0 +1,14 @@
+* { 
+    box-sizing:border-box
+} 
+
+html, body, div, header, footer, ul, ol, li, p, a, h1, h2, h3, h4 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+    vertical-align: baseline;
+}
+
+ol,ul {
+    list-style:none
+}
